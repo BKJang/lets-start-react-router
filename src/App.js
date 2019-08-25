@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Profiles from './Profiles';
@@ -23,12 +23,20 @@ function App() {
         </li>
       </ul>
       <hr />
-      <Route path='/' exact={true} component={Home} />
-      <Route path='/about' component={About} />
-      <Route path='/profile' component={Profiles} />
-      <Route path='/history' component={historySample} />
+      <Switch>
+        <Route path='/' component={Home} exact />
+        <Route path='/about' component={About} />
+        <Route path='/profile' component={Profiles} />
+        <Route path='/history' component={historySample} />
+        <Route render={({ location }) => (
+          <div>
+            <h2>Page is not found</h2>
+            <h3>{location.pathname}</h3>
+          </div>)}
+          />
+      </Switch>
     </div>
-  );
-}
-
-export default App;
+      );
+    }
+    
+    export default App;
