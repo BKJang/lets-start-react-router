@@ -1,5 +1,6 @@
 import React from 'react';
 import WithRouterSample from './WithRouterSample';
+import RouterHookSample from './RouterHookSample';
 
 const profileData = {
   bkjang: {
@@ -24,6 +25,7 @@ function Profile({ match }) {
       <h3>사용자명 : {profile.name}</h3>
       <h4>소개: {profile.description}</h4>
       <WithRouterSample />
+      <RouterHookSample />
     </div>
   )
 }
